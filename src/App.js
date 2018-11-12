@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+// lazy:  api provide a way to load the components lazily, this can be done by dynamic imports.
+// Suspense: api provide a way to load a specific component lazily without affecting the other components load. fallback props provide us display another
+// contentuntill it loads the component.
+
+import React, { Component, lazy, Suspense } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+// Dynamic import
+const MyComp = lazy(() => import ("./React-lazy/components/MyComp"));
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
@@ -19,7 +24,9 @@ class App extends Component {
           >
             Learn React
           </a>
-        </header>
+        <Suspense fallback={<div>Loading.....</div>}>
+          <MyComp />
+        </Suspense>
       </div>
     );
   }
