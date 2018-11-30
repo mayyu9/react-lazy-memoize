@@ -3,7 +3,7 @@
 // contentuntill it loads the component.
 
 import React, { Component, lazy, Suspense } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 // Dynamic import
